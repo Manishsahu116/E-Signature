@@ -7,6 +7,8 @@ const SignatureGenerator = () => {
     const [font, setFont] = useState('Dancing Script'); // Default font
     const [generatedSignature, setGeneratedSignature] = useState(null);
     const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
+    const [slope, setSlope] = useState(0); // Slope angle
+    const [size, setSize] = useState(60); // Default size
 
     // Handle the signature generation
     const generateSignature = () => {
@@ -17,9 +19,19 @@ const SignatureGenerator = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Apply the font style dynamically
-        ctx.font = `bold 60px '${font}', sans-serif`;
+        ctx.font = `bold ${size}px '${font}', sans-serif`;
         ctx.fillStyle = signatureColor;
-        ctx.fillText(signatureText, 50, 150);
+
+        // Calculate the text position based on slope
+        const x = 50 + slope;
+        const y = 150;
+
+        // Draw the signature with the calculated slope
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate((slope * Math.PI) / 180); // Convert slope to radians
+        ctx.fillText(signatureText, 0, 0);
+        ctx.restore();
 
         setGeneratedSignature(canvas.toDataURL('image/png'));
     };
@@ -29,7 +41,7 @@ const SignatureGenerator = () => {
         if (signatureText) {
             generateSignature();
         }
-    }, [font, signatureColor, signatureText]); // Re-generate when font or color changes
+    }, [font, signatureColor, signatureText, slope, size]); // Re-generate when slope or size changes
 
     // Download signature as PNG
     const downloadSignature = () => {
@@ -77,6 +89,34 @@ const SignatureGenerator = () => {
                     <option value="Montserrat">Montserrat</option>
                     <option value="Poppins">Poppins</option>
                     <option value="Open Sans">Open Sans</option>
+                </select>
+            </div>
+
+            {/* Size Selection */}
+            <div className="mb-4">
+                <label className="block text-gray-700 font-semibold mb-2">Choose Signature Size:</label>
+                <select
+                    value={size}
+                    onChange={(e) => setSize(Number(e.target.value))}
+                    className="border p-3 mb-4 w-full rounded-lg"
+                >
+                    <option value={40}>Small</option>
+                    <option value={60}>Medium</option>
+                    <option value={80}>Large</option>
+                </select>
+            </div>
+
+            {/* Slope Selection */}
+            <div className="mb-4">
+                <label className="block text-gray-700 font-semibold mb-2">Slope Signature:</label>
+                <select
+                    value={slope}
+                    onChange={(e) => setSlope(Number(e.target.value))}
+                    className="border p-3 mb-4 w-full rounded-lg"
+                >
+                    <option value={0}>Straight</option>
+                    <option value={-15}>Left</option>
+                    <option value={15}>Right</option>
                 </select>
             </div>
 
