@@ -12,12 +12,12 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 text-white p-3">
       <div className="container mx-auto">
-        <div className="flex justify-between md:justify-around items-center">
+        <div className="flex justify-between md:justify-around  items-center">
           {/* Logo */}
           <div className="text-2xl font-bold">E-Signature</div>
 
           {/* Menu button for small screens */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
               <svg
                 className="w-6 h-6"
@@ -37,7 +37,7 @@ const Navbar = () => {
           </div>
 
           {/* Links for larger screens */}
-          <div className="hidden lg:flex space-x-4">
+          <div className="hidden md:flex space-x-4">
             <Link to="/" className="px-3 py-2 hover:bg-gray-700 rounded">
               Home
             </Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
 
         {/* Dropdown menu for smaller screens, positioned below logo */}
         {isOpen && (
-          <div className="lg:hidden mt-4 flex flex-col space-y-2">
+          <div className="md:hidden mt-4 flex flex-col space-y-2">
             <Link to="/" onClick={handleLinkClick} className="block px-4 py-2 hover:bg-gray-700 rounded">
               Home
             </Link>
