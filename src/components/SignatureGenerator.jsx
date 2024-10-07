@@ -80,15 +80,17 @@ const SignatureGenerator = () => {
                     className="border p-3 mb-4 w-full rounded-lg"
                 >
                     <option value="Dancing Script">Dancing Script</option>
-                    <option value="Edu Australia VIC WA NT Hand Guides">Edu Australia VIC WA NT Hand Guides</option>
+                    <option value="Edu Australia VIC WA NT Hand Guides">Edu Australia</option>
                     <option value="Afacad Flux">Afacad Flux</option>
                     <option value="Qwitcher Grypen">Qwitcher Grypen</option>
                     <option value="Shadows Into Light">Shadows Into Light</option>
                     <option value="Roboto">Roboto</option>
-                    <option value="Lobster">Lobster</option>
+                    <option value="Lobster Two">Lobster</option>
+                    <option value="Coming Soon">Coming Soon</option>
+                    <option value="Tangerine">Tangerine</option>
                     <option value="Great Vibes">Great Vibes</option>
                     <option value="Pacifico">Pacifico</option>
-                    <option value="Montserrat">Montserrat</option>
+                    <option value="Montserrat Alternates">Montserrat</option>
                     <option value="Poppins">Poppins</option>
                     <option value="Open Sans">Open Sans</option>
                 </select>
@@ -149,13 +151,13 @@ const SignatureGenerator = () => {
                             color={signatureColor}
                             onChangeComplete={(color) => {
                                 setSignatureColor(color.hex);
-                                setIsColorPickerOpen(false); 
                             }}
                             width={250}
                         />
                         <div className="flex justify-end mt-4">
                             <button
-                                onClick={() => setIsColorPickerOpen(false)}
+                                onClick={() =>
+                                    setIsColorPickerOpen(false)}
                                 className="bg-slate-600 text-white py-2 px-4 rounded-lg hover:bg-slate-800"
                             >
                                 Done
