@@ -17,8 +17,6 @@ const SignatureGenerator = () => {
         canvas.width = 600;
         canvas.height = 250;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Apply the font style dynamically
         ctx.font = `bold ${size}px '${font}', sans-serif`;
         ctx.fillStyle = signatureColor;
 
@@ -45,7 +43,7 @@ const SignatureGenerator = () => {
         if (signatureText) {
             generateSignature();
         }
-    }, [font, signatureColor, signatureText, slope, size]); // Re-generate on font change
+    }, [font, signatureColor, signatureText, slope, size]);
     
     // Download signature as PNG
     const downloadSignature = () => {
