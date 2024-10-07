@@ -4,7 +4,7 @@ import SignatureCanvas from 'react-signature-canvas';
 const DrawSignature = () => {
     const signatureRef = useRef(null);
     const [signatureImage, setSignatureImage] = useState(null);
-    const [color, setColor] = useState('#000000'); // Default color
+    const [color, setColor] = useState('#000000'); 
 
     // Adjust the canvas for device pixel ratio
     useEffect(() => {
@@ -74,13 +74,13 @@ const DrawSignature = () => {
             <div className="flex justify-center space-x-4">
                 <button
                     onClick={saveSignature}
-                    className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg"
+                    className="bg-slate-500 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg"
                 >
                     Save as PNG
                 </button>
                 <button
                     onClick={clearCanvas}
-                    className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg"
+                    className="bg-red-400 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg"
                 >
                     Clear
                 </button>

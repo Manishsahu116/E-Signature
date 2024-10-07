@@ -177,13 +177,13 @@ const SignatureGenerator = () => {
                     <div className="flex justify-center space-x-4">
                         <button
                             onClick={downloadSignature}
-                            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg"
+                            className="bg-slate-500 hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg"
                         >
                             Download as PNG
                         </button>
                         <button
                             onClick={() => { setSignatureText(''); setGeneratedSignature(null); }}
-                            className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
+                            className="bg-red-400 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
                         >
                             Clear
                         </button>
