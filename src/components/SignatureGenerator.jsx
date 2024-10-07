@@ -22,8 +22,12 @@ const SignatureGenerator = () => {
         ctx.font = `bold ${size}px '${font}', sans-serif`;
         ctx.fillStyle = signatureColor;
 
-        // Calculate the text position based on slope
-        const x = 50 + slope;
+        // Calculate the text width to ensure it fits in the canvas
+        const textWidth = ctx.measureText(signatureText).width;
+        const maxWidth = canvas.width - 100; // Leaving some padding on the sides
+        const x = Math.max(50, (canvas.width - textWidth) / 2); // Center the text if possible
+
+        // Adjust Y position based on text height
         const y = 150;
 
         // Draw the signature with the calculated slope
@@ -41,8 +45,8 @@ const SignatureGenerator = () => {
         if (signatureText) {
             generateSignature();
         }
-    }, [font, signatureColor, signatureText, slope, size]); // Re-generate when slope or size changes
-
+    }, [font, signatureColor, signatureText, slope, size]); // Re-generate on font change
+    
     // Download signature as PNG
     const downloadSignature = () => {
         const link = document.createElement('a');
@@ -125,7 +129,7 @@ const SignatureGenerator = () => {
                 <label className="block text-gray-700 font-semibold mb-2">Pick Signature Color:</label>
                 <div className="flex items-center mb-2">
                     <button
-                        onClick={() => setIsColorPickerOpen(true)}
+                        onClick={() => setIsColorPickerOpen(!isColorPickerOpen)} // Toggle instead of always opening
                         className="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-lg w-full"
                     >
                         Choose Color
@@ -145,7 +149,10 @@ const SignatureGenerator = () => {
                         <h3 className="text-lg font-semibold text-gray-800 mb-4">Pick a Color</h3>
                         <SketchPicker
                             color={signatureColor}
-                            onChangeComplete={(color) => setSignatureColor(color.hex)}
+                            onChangeComplete={(color) => {
+                                setSignatureColor(color.hex);
+                                setIsColorPickerOpen(false); 
+                            }}
                             width={250}
                         />
                         <div className="flex justify-end mt-4">

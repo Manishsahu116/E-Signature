@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';// Import Link from react-router-dom
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { FaKeyboard, FaPencilAlt } from 'react-icons/fa'; // Import icons from react-icons
 
 const Home = () => {
   return (
@@ -12,22 +13,23 @@ const Home = () => {
         Create your digital signature easily using our online signature pad. Compatible with all devices including iPhone, iPad, Android phones, tablets, and computers.
       </p>
 
-      {/* Buttons for Signature Generator and Draw Signature */}
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-        <Link to="/signature-generator"> {/* Use Link for navigation */}
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg">
-            Generate Your Own Signature
-          </button>
+      {/* Icons for Signature Generator and Draw Signature */}
+      <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
+        <Link to="/signature-generator"> 
+          <div className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:shadow-lg transition-shadow duration-200">
+            <FaKeyboard className="text-slate-600 hover:text-blue-700 text-6xl mb-2" /> 
+            <p className="text-gray-500 mt-2">Type your signature with ease.</p> 
+          </div>
         </Link>
         <Link to="/signature-draw">
-          <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg">
-            Draw Your Own Signature
-          </button>          
-          </Link>
+          <div className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:shadow-lg transition-shadow duration-200">
+            <FaPencilAlt className="text-slate-600 hover:text-blue-700 text-6xl mb-2" /> 
+            <p className="text-gray-500 mt-2">Draw your signature freely.</p> 
+          </div>          
+        </Link>
       </div>
     </div>
   );
 };
 
 export default Home;
-
