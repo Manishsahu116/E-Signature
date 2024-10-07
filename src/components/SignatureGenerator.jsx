@@ -7,8 +7,8 @@ const SignatureGenerator = () => {
     const [font, setFont] = useState('Dancing Script'); // Default font
     const [generatedSignature, setGeneratedSignature] = useState(null);
     const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
-    const [slope, setSlope] = useState(0); // Slope angle
-    const [size, setSize] = useState(60); // Default size
+    const [slope, setSlope] = useState(0); 
+    const [size, setSize] = useState(60); 
 
     // Handle the signature generation
     const generateSignature = () => {
@@ -19,7 +19,7 @@ const SignatureGenerator = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Apply the font style dynamically
-        ctx.font = `bold ${size}px '${font}', sans-serif`;
+        ctx.font = `bold ${size}px '${font}'`;
         ctx.fillStyle = signatureColor;
 
         // Calculate the text width to ensure it fits in the canvas
