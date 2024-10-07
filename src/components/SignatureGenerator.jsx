@@ -24,8 +24,8 @@ const SignatureGenerator = () => {
 
         // Calculate the text width to ensure it fits in the canvas
         const textWidth = ctx.measureText(signatureText).width;
-        const maxWidth = canvas.width - 100; // Leaving some padding on the sides
-        const x = Math.max(50, (canvas.width - textWidth) / 2); // Center the text if possible
+        const maxWidth = canvas.width - 100; 
+        const x = Math.max(50, (canvas.width - textWidth) / 2); 
 
         // Adjust Y position based on text height
         const y = 150;
@@ -33,7 +33,7 @@ const SignatureGenerator = () => {
         // Draw the signature with the calculated slope
         ctx.save();
         ctx.translate(x, y);
-        ctx.rotate((slope * Math.PI) / 180); // Convert slope to radians
+        ctx.rotate((slope * Math.PI) / 180); 
         ctx.fillText(signatureText, 0, 0);
         ctx.restore();
 
