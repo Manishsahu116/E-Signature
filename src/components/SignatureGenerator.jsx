@@ -19,7 +19,7 @@ const SignatureGenerator = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Apply the font style dynamically
-        ctx.font = `bold ${size}px '${font}'`;
+        ctx.font = `bold ${size}px '${font}', sans-serif`;
         ctx.fillStyle = signatureColor;
 
         // Calculate the text width to ensure it fits in the canvas
