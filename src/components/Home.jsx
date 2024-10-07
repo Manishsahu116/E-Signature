@@ -9,7 +9,7 @@ const Home = () => {
       </h1>
 
       {/* Description Text */}
-      <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl">
+      <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl">
         Create your digital signature easily using our online signature pad. Compatible with all devices including iPhone, iPad, Android phones, tablets, and computers.
       </p>
 
