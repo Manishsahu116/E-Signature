@@ -4,7 +4,7 @@ import SignatureCanvas from 'react-signature-canvas';
 const DrawSignature = () => {
     const signatureRef = useRef(null);
     const [signatureImage, setSignatureImage] = useState(null);
-    const [color, setColor] = useState('#000000'); 
+    const [color, setColor] = useState('#000000');
 
     // Adjust the canvas for device pixel ratio
     useEffect(() => {
@@ -42,33 +42,33 @@ const DrawSignature = () => {
             {/* Signature Canvas */}
             <SignatureCanvas
                 ref={signatureRef}
-                backgroundColor="rgba(255, 255, 255, 0)" // Transparent background
+                backgroundColor="rgba(255, 255, 255, 0)"
                 penColor={color}
                 canvasProps={{
-                    width: 600,
-                    height: 250,
+                    width: Math.min(window.innerWidth * 0.9, 600),
+                    height: 450,
                     className: 'border border-gray-400 w-full h-auto'
                 }}
             />
 
             {/* Color Options */}
-            <div className="mb-4">
-                <label className="block text-gray-700 font-semibold mb-2">Pick Signature Color:</label>
-                <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-10 gap-2">
+            <div className="m-4">
+                <label className="block text-gray-700 font-semibold mb-2">Pick Color:</label>
+                <div className="grid grid-cols-7 md:flex justify-center gap-5">
                     {[
                         '#000000', '#FF5733', '#33FF57', '#3357FF',
-                        '#FFC300', '#FF33A1', '#33FFF2', '#E4CBA8', 
-                        '#C8A2C8', '#079ef5'
+                        '#FFC300', '#FF33A1', '#079ef5'
                     ].map((colorOption) => (
                         <button
                             key={colorOption}
                             onClick={() => setColor(colorOption)}
                             style={{ backgroundColor: colorOption }}
-                            className={`w-8 h-8 border rounded-full ${color === colorOption ? 'border-2 border-black' : ''}`}
+                            className={`w-6 h-6 border-4 rounded-full transition-all duration-300 ${color === colorOption ? 'ring-1 ring-black' : 'border border-transparent'}`}
                         />
                     ))}
                 </div>
             </div>
+
 
             {/* Buttons */}
             <div className="flex justify-center space-x-4">
