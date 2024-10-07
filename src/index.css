@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Edu+Australia+VIC+WA+NT+Hand+Guides&family=Afacad+Flux&family=Qwitcher+Grypen&family=Shadows+Into+Light&family=Roboto:wght@400;700&family=Lobster&family=Great+Vibes&family=Pacifico&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif; /* Default font */
