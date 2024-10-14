@@ -24,7 +24,7 @@ The E-Signature Application is a web-based tool that allows users to create and 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Manishsahu116/E-Signature.git
-   cd e-signature
+   cd E-Signature
 
    # Install dependencies : 
    npm install
